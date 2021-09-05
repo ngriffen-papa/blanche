@@ -8,6 +8,12 @@ I'm exploring event design, event-driven system design, event-driven service des
 - install elixir, erlang, and nodejs plugins 
 - run asdf install in this project directory at the same level as .tool-versions to install and use the stuff listed in .tool-versions
 
+# Build a Prod Release 
+
+```sh
+chmod a+x build.sh
+./build.sh
+```
 # Use the pre-commit hook to lint and format your files 
 
 - cp hooks/pre-commit .git/hooks/pre-commit
