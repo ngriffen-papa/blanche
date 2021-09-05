@@ -1,6 +1,12 @@
 version: "3.9"
 
 services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
   zookeeper:
     image: bitnami/zookeeper:3.7
     ports:
@@ -31,4 +37,4 @@ volumes:
   zookeeper_data:
     driver: local
   kafka_data:
-    driver: local
+    driver: local      
