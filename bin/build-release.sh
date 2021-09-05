@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-# Install deps
+# Install npm javascript deps
 npm install --prefix ./assets
 mix deps.get --only prod
 

@@ -11,14 +11,14 @@ I'm exploring event design, event-driven system design, event-driven service des
 # Build a Prod Release 
 
 ```sh
-chmod a+x build.sh
-./build.sh
+chmod a+x ./bin/build.sh
+./bin/build.sh
 ```
 # Use the pre-commit hook to lint and format your files 
 
 ```sh
-cp hooks/pre-commit .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
+chmod +x ./bin/hooks/pre-commit
+cp ./bin/hooks/pre-commit .git/hooks/pre-commit
 ```
 # Resources
 - Sergio Tapia's [Phoenix 1.6.0 LiveView + esbuild + Tailwind JIT + AlpineJS - A brief tutorial.](https://sergiotapia.com/phoenix-160-liveview-esbuild-tailwind-jit-alpinejs-a-brief-tutorial)
