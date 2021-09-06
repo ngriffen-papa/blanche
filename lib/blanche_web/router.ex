@@ -41,7 +41,7 @@ defmodule BlancheWeb.Router do
       live_dashboard "/dashboard",
         metrics: BlancheWeb.Telemetry,
         additional_pages: [
-          broadway: {BroadwayDashboard, pipelines: [BlancheBroadway]}
+          broadway: {BroadwayDashboard, pipelines: [Blanche.Broadway]}
         ]
     end
   end

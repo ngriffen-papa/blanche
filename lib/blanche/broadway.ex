@@ -1,4 +1,4 @@
-defmodule BlancheBroadway do
+defmodule Blanche.Broadway do
   @moduledoc """
   Mostly-boilerplate configuration for Broadway, an external dependency we're using to process messages / events and interface with Kafka
   See https://hexdocs.pm/broadway/apache-kafka.html#define-the-pipeline-configuration
