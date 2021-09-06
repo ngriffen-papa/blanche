@@ -15,7 +15,8 @@ defmodule Blanche.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Blanche.PubSub},
       # Start the Endpoint (http/https)
-      BlancheWeb.Endpoint
+      BlancheWeb.Endpoint,
+      {BlancheBroadway, []}
       # Start a worker by calling: Blanche.Worker.start_link(arg)
       # {Blanche.Worker, arg}
     ]

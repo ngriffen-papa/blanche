@@ -34,6 +34,7 @@ defmodule Blanche.MixProject do
   defp deps do
     [
       {:broadway, "~> 1.0.0"},
+      {:broadway_kafka, "~> 0.3"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:ecto_sql, "~> 3.6"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
