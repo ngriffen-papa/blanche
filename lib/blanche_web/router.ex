@@ -37,7 +37,12 @@ defmodule BlancheWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: BlancheWeb.Telemetry
+
+      live_dashboard "/dashboard",
+        metrics: BlancheWeb.Telemetry,
+        additional_pages: [
+          broadway: {BroadwayDashboard, pipelines: [BlancheBroadway]}
+        ]
     end
   end
 

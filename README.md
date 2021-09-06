@@ -21,27 +21,28 @@ chmod +x ./bin/hooks/pre-commit
 cp ./bin/hooks/pre-commit .git/hooks/pre-commit
 ```
 
-# Send Messages to Kafka in iex
+# Send Messages to Kafka
 
-```bash
-$> iex -S mix 
-iex(1)> [topic | _] = Application.compile_env(:blanche, [:broadway, :kafka_topics])
-iex(2)> client_id = :blanche_kafka_client
-iex(3)> hosts = Application.compile_env(:blanche, [:broadway, :kafka_hosts])
+copy/paste into iex 
 
-iex(4)> :ok = :brod.start_client(hosts, client_id, _client_config = [])
-iex(5)> :ok = :brod.start_producer(client_id, topic, _producer_config = [])
+```elixir
+[topic | _] = Application.compile_env(:blanche, [:broadway, :kafka_topics])
+client_id = :blanche_kafka_client
+hosts = Application.compile_env(:blanche, [:broadway, :kafka_hosts])
 
-iex(6)> produce_message = fn i ->
+:ok = :brod.start_client(hosts, client_id, _client_config = [])
+:ok = :brod.start_producer(client_id, topic, _producer_config = [])
+
+produce_message = fn i ->
   partition = rem(i, 3)
   :ok = :brod.produce_sync(client_id, topic, partition, _key = "", "#{i}")
 end
 
-iex(7)> produce_message.(15)
-[info] client :blanche_kafka_client connected to localhost:9091
+produce_message.(15)
 
-:ok
-[info] [{"15", 30}]
+# :ok
+# [info] client :blanche_kafka_client connected to localhost:9091
+# [info] [{"15", 30}]
 ```
 # Resources
 - Sergio Tapia's [Phoenix 1.6.0 LiveView + esbuild + Tailwind JIT + AlpineJS - A brief tutorial.](https://sergiotapia.com/phoenix-160-liveview-esbuild-tailwind-jit-alpinejs-a-brief-tutorial)
