@@ -1,4 +1,3 @@
 #!/bin/sh
 mix credo && 
-mix format && 
-git add .
+mix format
