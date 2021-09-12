@@ -1,4 +1,6 @@
 # Blanche
+![mix test](https://github.com/nicholasgriffen/blanche/actions/workflows/mix-test.yml/badge.svg)
+
 
 I'm exploring event design, event-driven system design, event-driven service design, and elixir. See [Resources](#resources) for links to tutorials, resources, etc. that I used in building the project. 
 
