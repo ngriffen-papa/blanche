@@ -9,20 +9,15 @@ defmodule Blanche.Broadway do
 
   require Logger
 
-  @hosts Application.compile_env(:blanche, [:broadway, :kafka_hosts])
-  @topics Application.compile_env(:blanche, [:broadway, :kafka_topics])
+  @dialyzer {:no_return, start_link: 1}
 
   def start_link(_opts) do
+    producer_module = Application.fetch_env!(:blanche, :producer_module)
+
     Broadway.start_link(__MODULE__,
       name: __MODULE__,
       producer: [
-        module:
-          {BroadwayKafka.Producer,
-           [
-             hosts: @hosts,
-             group_id: "group_1",
-             topics: @topics
-           ]},
+        module: producer_module,
         concurrency: 3
       ],
       processors: [

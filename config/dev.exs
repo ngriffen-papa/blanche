@@ -80,6 +80,11 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :blanche, :broadway,
-  kafka_hosts: [localhost: 9091, localhost: 9093, localhost: 9095],
-  kafka_topics: ["casefiles"]
+config :blanche,
+  producer_module:
+    {BroadwayKafka.Producer,
+     [
+       hosts: [localhost: 9091, localhost: 9093, localhost: 9095],
+       group_id: "group_1",
+       topics: ["casefiles"]
+     ]}
