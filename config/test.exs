@@ -23,7 +23,8 @@ config :blanche, BlancheWeb.Endpoint,
 # In test we don't send emails.
 config :blanche, Blanche.Mailer, adapter: Swoosh.Adapters.Test
 
+config :blanche, producer_module: {Broadway.DummyProducer, []}
+
+config :logger_json, :backend, level: :warn
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
-
-config :blanche, producer_module: {Broadway.DummyProducer, []}
