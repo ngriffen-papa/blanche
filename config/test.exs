@@ -11,7 +11,8 @@ config :blanche, Blanche.Repo,
   database: "blanche_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: 10
+  pool_size: 10,
+  log: false
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
@@ -22,8 +23,9 @@ config :blanche, BlancheWeb.Endpoint,
 # In test we don't send emails.
 config :blanche, Blanche.Mailer, adapter: Swoosh.Adapters.Test
 
-# Print only warnings and errors during test
-config :logger, level: :warn
-
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :blanche, :broadway,
+  kafka_hosts: [localhost: 9091, localhost: 9093, localhost: 9095],
+  kafka_topics: ["blanche_test"]

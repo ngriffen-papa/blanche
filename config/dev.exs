@@ -7,7 +7,8 @@ config :blanche, Blanche.Repo,
   database: "blanche_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 10,
+  log: false
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -70,9 +71,6 @@ config :blanche, BlancheWeb.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
-
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
@@ -82,4 +80,4 @@ config :phoenix, :plug_init_mode, :runtime
 
 config :blanche, :broadway,
   kafka_hosts: [localhost: 9091, localhost: 9093, localhost: 9095],
-  kafka_topics: ["casefiles"]
+  kafka_topics: ["blanche_dev"]
