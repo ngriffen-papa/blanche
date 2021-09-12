@@ -46,5 +46,6 @@ defmodule BlancheWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug LoggerJSON.Plug
   plug BlancheWeb.Router
 end
