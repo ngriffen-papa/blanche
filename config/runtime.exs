@@ -18,7 +18,8 @@ if config_env() == :prod do
     # ssl: true,
     # socket_options: [:inet6],
     url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+    log: false
 
   secret_key_base =
     System.get_env("SECRET_KEY_BASE") ||

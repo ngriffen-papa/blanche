@@ -21,6 +21,16 @@ defmodule Blanche.Application do
       # {Blanche.Worker, arg}
     ]
 
+    if Mix.env() == :dev do
+      :ok =
+        :telemetry.attach(
+          "logger-json-ecto",
+          [:blanche, :repo, :query],
+          &LoggerJSON.Ecto.telemetry_logging_handler/4,
+          :debug
+        )
+    end
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Blanche.Supervisor]
