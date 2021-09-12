@@ -1,0 +1,19 @@
+on: push
+
+jobs:
+  mix-test:
+    runs-on: ubuntu-20.04
+    services:
+      database:
+        image: postgres:13.4-alpine
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '24'
+          elixir-version: '1.12.2'
+      - run: mix deps.get
+      - run: mix test
