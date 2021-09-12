@@ -50,7 +50,7 @@ produce_message.(15)
 - Sergio Tapia's [Phoenix 1.6.0 LiveView + esbuild + Tailwind JIT + AlpineJS - A brief tutorial.](https://sergiotapia.com/phoenix-160-liveview-esbuild-tailwind-jit-alpinejs-a-brief-tutorial)
 - Ben Stopford's [Book: Designing Event Driven Systems](http://www.benstopford.com/2018/04/27/book-designing-event-driven-systems/)
 - Bitnami [Docker Compose Documentation](https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md)
-- Martin Fowler [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html
+- Martin Fowler [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)
 
 # Pheonix Generated README 
 
